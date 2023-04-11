@@ -2,7 +2,7 @@
 let iPosition
 let jPosition
 
-start()
+let labyrinth
 
 function start() {
     iPosition = 9
@@ -10,8 +10,12 @@ function start() {
     drawLabyrinth(iPosition, jPosition)
 }
 
+var lootI =  Math.floor(Math.random() * 10) + 1;
+var lootJ =  Math.floor(Math.random() * 10) + 1;
+var rndI =  Math.floor(Math.random() * 10) + 1;
+var rndJ =  Math.floor(Math.random() * 10) + 1;
 function drawLabyrinth(iPos, jPos) {
-    let labyrinth = ""
+    labyrinth = ""
     let i = 0
     let j = 0
 
@@ -19,6 +23,22 @@ function drawLabyrinth(iPos, jPos) {
         for (j = 0; j <= 9; j++) {
             if (iPos == i && jPos == j) {
                 labyrinth += "<div> X </div>"
+            }
+            else if(lootI == i && lootJ == j)
+            {
+                labyrinth += "<div id='loot'> Loot </div>"
+            }
+            else if(rndI == i && rndJ == j)
+            {
+                labyrinth += "<div id='monster'> M </div>"
+            }
+            else if(i > 2 && i < 6 && j % 8 == 0)
+            {
+                labyrinth += "<div id='wall'>Wall</div>"
+            }
+            else if(j > 4 && i < 6 && i % 5 == 0 || i == 9 && j < 3 && j > 0)
+            {
+                labyrinth += "<div id='wall'>Wall</div>"
             }
             else {
                 labyrinth += "<div> i." + i + "| j." + j + "</div>"
@@ -33,16 +53,25 @@ function move(value) {
         iPosition--;
         drawLabyrinth(iPosition, jPosition)
     }
-    if (value == 'West' && jPosition > 0) {
+    else if (value == 'West' && jPosition > 0) {
         jPosition--;
         drawLabyrinth(iPosition, jPosition)
     }
-    if (value == 'East' && jPosition < 9) {
+    else if (value == 'East' && jPosition < 9) {
         jPosition++;
         drawLabyrinth(iPosition, jPosition)
     }
-    if (value == 'South' && iPosition < 9) {
+    else if (value == 'South' && iPosition < 9) {
         iPosition++;
         drawLabyrinth(iPosition, jPosition)
     }
+
+    if(iPosition == 0 && jPosition == 4) {
+        gameWon()
+    }
+}
+
+function gameWon() {
+    labyrinth = "<h1>Congrats, you won!</h1>"
+    document.getElementById("frame").innerHTML = labyrinth
 }

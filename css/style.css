@@ -1,7 +1,7 @@
 #frame {
     padding: 20px;
-    width: 670px;
-    height: 700px;
+    width: 660px;
+    height: 620px;
     background-color: whitesmoke;
 }
 div {
@@ -11,38 +11,34 @@ div {
     height: 60px;
     display: inline-block;
 }
-
+#statusDiv {
+    width: 680px;
+    height: 200px;
+    display: flex;
+}
 #buttonDiv {
-    background-color: whitesmoke;
-    display: grid;
-    grid-template-rows: 70px, 70px, 70px;
-    grid-template-columns: 60px, 60px, 60px;
-    width: 150px;
-    height: 150px;
+    border: double 5px rgb(31, 30, 30);
+    display: flex;
+    flex-wrap: wrap;
+    width: 190px;
+    height: 190px;
 }
 
 input {
-    width: 60px;
-    height: 50px;
+    width: 190px;
+    height: 60px;
     background-color: rgb(164, 217, 219);
 }
 
-#north{
-    grid-row: 0;
-    grid-column: 1 / span 1;
+#startButton {
+    background-color: burlywood;
+    width: 100px;
 }
 
-#west{
-    grid-row: 2;
-    grid-column: 0 / span 1;
+#west, #east{
+    width: 95px;
 }
 
-#east{
-    grid-row: 2;
-    grid-column: 3 / span 1;
-}
-
-#south{
-   grid-row: 3;
-   grid-column: 1 / span 1;
+#wall {
+    background-color: rgb(136, 79, 15);
 }
