@@ -1,0 +1,48 @@
+#frame {
+    padding: 20px;
+    width: 750px;
+    height: 700px;
+    background-color: whitesmoke;
+}
+div {
+    background-color: aliceblue;
+    border: solid 1px black;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+}
+
+#buttonDiv {
+    background-color: whitesmoke;
+    display: grid;
+    grid-template-rows: 70px, 70px, 70px;
+    grid-template-columns: 60px, 60px, 60px;
+    width: 150px;
+    height: 150px;
+}
+
+input {
+    width: 60px;
+    height: 50px;
+    background-color: rgb(164, 217, 219);
+}
+
+#north{
+    grid-row: 0;
+    grid-column: 1 / span 1;
+}
+
+#west{
+    grid-row: 2;
+    grid-column: 0 / span 1;
+}
+
+#east{
+    grid-row: 2;
+    grid-column: 3 / span 1;
+}
+
+#south{
+   grid-row: 3;
+   grid-column: 1 / span 1;
+}
