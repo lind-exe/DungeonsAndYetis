@@ -9,9 +9,40 @@
     /* background-image: url(/resources/Front\ Open.png); */
     background-size:contain;
     background-repeat: no-repeat;
-    width: 300px;
-    height: 150px;
+    width: 1100px;
+    height: 450px;
     float: right;
+}
+#compass {
+    border-radius: 40% 40%;
+    border-width: 4px;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: rgb(201, 194, 194, 0.7);
+}
+
+#compass p {
+    font-size: larger;
+    position: absolute;
+    font-weight: bold;
+}
+#dir1 {
+    top: -10px;
+    left: 45px;
+    color: red;
+}
+#dir2 {
+    left:0;
+    top: 20px;
+}
+#dir3 {
+    right: 0;
+    top: 20px;
+}
+#dir4 {
+    top: 50px;
+    left: 45px;
 }
 div {
     background-color: rgb(228, 233, 238);

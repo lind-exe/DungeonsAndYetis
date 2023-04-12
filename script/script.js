@@ -23,7 +23,7 @@ function start() {
     jPosition = 5
     points = 0
     document.getElementById("statusText").innerHTML = ""
-    document.getElementById("compass").innerHTML = "North"
+    document.getElementById("direction").innerHTML = "North"
     document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
     drawLabyrinth(iPosition, jPosition)
 }
@@ -64,7 +64,7 @@ function drawLabyrinth(iPos, jPos) {
         }
     }
     document.getElementById("frame").innerHTML = labyrinth
-    let value = document.getElementById("compass").innerHTML
+    let value = document.getElementById("direction").innerHTML
     addPictures(iPosition, jPosition, value)
 }
 
@@ -75,7 +75,7 @@ function move(value) {
         }
         else {
             iPosition--;
-            document.getElementById("compass").innerHTML = "North"
+            document.getElementById("direction").innerHTML = "North"
             drawLabyrinth(iPosition, jPosition)
         }
     }
@@ -85,7 +85,7 @@ function move(value) {
         }
         else {
             jPosition--;
-            document.getElementById("compass").innerHTML = "West"
+            document.getElementById("direction").innerHTML = "West"
             drawLabyrinth(iPosition, jPosition)
         }
     }
@@ -95,7 +95,7 @@ function move(value) {
         }
         else {
             jPosition++;
-            document.getElementById("compass").innerHTML = "East"
+            document.getElementById("direction").innerHTML = "East"
             drawLabyrinth(iPosition, jPosition)
         }
     }
@@ -105,7 +105,7 @@ function move(value) {
         }
         else
             iPosition++;
-        document.getElementById("compass").innerHTML = "South"
+        document.getElementById("direction").innerHTML = "South"
         drawLabyrinth(iPosition, jPosition)
     }
 
@@ -116,6 +116,35 @@ function move(value) {
 
     if (iPosition == 0 && jPosition == 4) {
         gameWon()
+    }
+}
+
+function changeCompass(direction) {
+    switch (direction) {
+        case 'North':
+            document.getElementById("dir1").innerHTML = "N";
+            document.getElementById("dir2").innerHTML = "W";
+            document.getElementById("dir3").innerHTML = "E";
+            document.getElementById("dir4").innerHTML = "S";
+            break;
+        case 'West':
+            document.getElementById("dir1").innerHTML = "W";
+            document.getElementById("dir2").innerHTML = "S";
+            document.getElementById("dir3").innerHTML = "N";
+            document.getElementById("dir4").innerHTML = "E";
+            break;
+        case 'East':
+            document.getElementById("dir1").innerHTML = "E";
+            document.getElementById("dir2").innerHTML = "N";
+            document.getElementById("dir3").innerHTML = "S";
+            document.getElementById("dir4").innerHTML = "W";
+            break;
+        case 'South':
+            document.getElementById("dir1").innerHTML = "S";
+            document.getElementById("dir2").innerHTML = "E";
+            document.getElementById("dir3").innerHTML = "W";
+            document.getElementById("dir4").innerHTML = "N";
+            break;
     }
 }
 
@@ -135,16 +164,16 @@ function addPictures(iPosition, jPosition, value) {
         if (jMinus == 1 && jPlus == 0 && iMinus == 0) {
             document.getElementById('background').style.backgroundImage = "url(resources/east-center-open.png)";
         }
-        if(jMinus == 0 && iMinus == 0 && jPlus == 1) {
+        if (jMinus == 0 && iMinus == 0 && jPlus == 1) {
             document.getElementById('background').style.backgroundImage = "url(resources/west-center-open.png)";
         }
-        if(jMinus == 0 && iMinus == 0 && jPlus == 0) {
+        if (jMinus == 0 && iMinus == 0 && jPlus == 0) {
             document.getElementById('background').style.backgroundImage = "url(resources/all-open.png)";
         }
-        if(jMinus == 0 && iMinus == 1 && jPlus == 1) {
+        if (jMinus == 0 && iMinus == 1 && jPlus == 1) {
             document.getElementById('background').style.backgroundImage = "url(resources/west-open.png)";
         }
-        if(jMinus == 1 && jPlus == 1 && iMinus == 1) {
+        if (jMinus == 1 && jPlus == 1 && iMinus == 1) {
             document.getElementById('background').style.backgroundImage = "url(resources/dead-end.png)";
         }
     }
@@ -153,18 +182,18 @@ function addPictures(iPosition, jPosition, value) {
 
             document.getElementById('background').style.backgroundImage = "url(resources/west-open.png)";
         }
-        if(jPlus == 1 && iMinus == 0 && iPlus == 0) {
+        if (jPlus == 1 && iMinus == 0 && iPlus == 0) {
             document.getElementById('background').style.backgroundImage = "url(resources/west-east-open.png)";
         }
     }
     else if (value == "West") {
-        if(jMinus == 1 && iPlus == 1 && iMinus == 1) {
+        if (jMinus == 1 && iPlus == 1 && iMinus == 1) {
             document.getElementById('background').style.backgroundImage = "url(resources/dead-end.png)";
         }
-        if(iMinus == 1 && iPlus == 1 && jMinus == 0) {
+        if (iMinus == 1 && iPlus == 1 && jMinus == 0) {
             document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
         }
-        if(jMinus == 1 && iPlus == 1 && iMinus == 0) {
+        if (jMinus == 1 && iPlus == 1 && iMinus == 0) {
             document.getElementById('background').style.backgroundImage = "url(resources/east-open.png)";
 
         }
@@ -180,16 +209,16 @@ function addPictures(iPosition, jPosition, value) {
         if (jMinus == 1 && jPlus == 0 && iPlus == 0) {
             document.getElementById('background').style.backgroundImage = "url(resources/east-center-open.png)";
         }
-        if(jMinus == 0 && iPlus == 0 && jPlus == 1) {
+        if (jMinus == 0 && iPlus == 0 && jPlus == 1) {
             document.getElementById('background').style.backgroundImage = "url(resources/west-center-open.png)";
         }
-        if(jMinus == 0 && iPlus == 0 && jPlus == 0) {
+        if (jMinus == 0 && iPlus == 0 && jPlus == 0) {
             document.getElementById('background').style.backgroundImage = "url(resources/all-open.png)";
         }
-        if(jMinus == 0 && iPlus == 1 && jPlus == 1) {
+        if (jMinus == 0 && iPlus == 1 && jPlus == 1) {
             document.getElementById('background').style.backgroundImage = "url(resources/west-open.png)";
         }
-        if(jMinus == 1 && jPlus == 1 && iPlus == 1) {
+        if (jMinus == 1 && jPlus == 1 && iPlus == 1) {
             document.getElementById('background').style.backgroundImage = "url(resources/dead-end.png)";
         }
     }
@@ -201,6 +230,7 @@ function addPictures(iPosition, jPosition, value) {
     // else if (array[iPosition + 1] == 1 && array[jPosition + 1] == 1) {
     //     //visa bild med de väggarna etc
     // }
+    changeCompass(value)
 }
 
 function gameWon() {
