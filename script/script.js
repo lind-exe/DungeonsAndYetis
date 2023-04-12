@@ -24,6 +24,7 @@ function start() {
     points = 0
     document.getElementById("statusText").innerHTML = ""
     document.getElementById("compass").innerHTML = "North"
+    document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
     drawLabyrinth(iPosition, jPosition)
 }
 
@@ -63,7 +64,7 @@ function drawLabyrinth(iPos, jPos) {
         }
     }
     document.getElementById("frame").innerHTML = labyrinth
-    let value = document.getElementById("compass").innerHTML 
+    let value = document.getElementById("compass").innerHTML
     addPictures(iPosition, jPosition, value)
 }
 
@@ -119,34 +120,78 @@ function move(value) {
 }
 
 function addPictures(iPosition, jPosition, value) {
+    let iMinus = array[iPosition - 1][jPosition]
+    let iPlus = array[iPosition + 1][jPosition]
+    let jMinus = array[iPosition][jPosition - 1]
+    let jPlus = array[iPosition][jPosition + 1]
+
     if (value == "North") {
-        if ((array[iPosition - 1][jPosition] == 0) && (array[iPosition][jPosition + 1] == 1) && (array[iPosition][jPosition - 1] == 1)) {
-
-            document.getElementById('background').style.backgroundImage="url(resources/center-open.png)";
+        if (jPlus == 1 && jMinus == 1 && iMinus == 0) {
+            document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
         }
-        else if ((array[iPosition - 1][jPosition] == 1) && (array[iPosition][jPosition - 1] == 1) && (array[iPosition][jPosition + 1] == 0)) {
-            document.getElementById('background').style.backgroundImage="url(resources/east-open.png)";
-
+        if (iMinus == 1 && jMinus == 1 && jPlus == 0) {
+            document.getElementById('background').style.backgroundImage = "url(resources/east-open.png)";
         }
-        else {
-            document.getElementById("statusText").innerHTML = "hej"
+        if (jMinus == 1 && jPlus == 0 && iMinus == 0) {
+            document.getElementById('background').style.backgroundImage = "url(resources/east-center-open.png)";
+        }
+        if(jMinus == 0 && iMinus == 0 && jPlus == 1) {
+            document.getElementById('background').style.backgroundImage = "url(resources/west-center-open.png)";
+        }
+        if(jMinus == 0 && iMinus == 0 && jPlus == 0) {
+            document.getElementById('background').style.backgroundImage = "url(resources/all-open.png)";
+        }
+        if(jMinus == 0 && iMinus == 1 && jPlus == 1) {
+            document.getElementById('background').style.backgroundImage = "url(resources/west-open.png)";
+        }
+        if(jMinus == 1 && jPlus == 1 && iMinus == 1) {
+            document.getElementById('background').style.backgroundImage = "url(resources/dead-end.png)";
+        }
+    }
+    else if (value == "East") {
+        if (iPlus == 1 && jPlus == 1 && iMinus == 0) {
+
+            document.getElementById('background').style.backgroundImage = "url(resources/west-open.png)";
+        }
+        if(jPlus == 1 && iMinus == 0 && iPlus == 0) {
+            document.getElementById('background').style.backgroundImage = "url(resources/west-east-open.png)";
+        }
+    }
+    else if (value == "West") {
+        if(jMinus == 1 && iPlus == 1 && iMinus == 1) {
+            document.getElementById('background').style.backgroundImage = "url(resources/dead-end.png)";
+        }
+        if(iMinus == 1 && iPlus == 1 && jMinus == 0) {
+            document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
+        }
+        if(jMinus == 1 && iPlus == 1 && iMinus == 0) {
+            document.getElementById('background').style.backgroundImage = "url(resources/east-open.png)";
+
         }
 
     }
-    else if(value == "East") {
-        if ((array[iPosition + 1][jPosition] == 1) && (array[iPosition][jPosition + 1] == 1) && (array[iPosition - 1][jPosition] == 0)) {
-
-            document.getElementById('background').style.backgroundImage="url(resources/west-open.png)";
+    else if (value == "South") {
+        if (jPlus == 1 && jMinus == 1 && iPlus == 0) {
+            document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
         }
-        else {
-            document.getElementById("statusText").innerHTML = "hej"
+        if (iPlus == 1 && jMinus == 1 && jPlus == 0) {
+            document.getElementById('background').style.backgroundImage = "url(resources/east-open.png)";
         }
-    }
-    else if(value == "West") {
-
-    }
-    else if(value == "South") {
-        
+        if (jMinus == 1 && jPlus == 0 && iPlus == 0) {
+            document.getElementById('background').style.backgroundImage = "url(resources/east-center-open.png)";
+        }
+        if(jMinus == 0 && iPlus == 0 && jPlus == 1) {
+            document.getElementById('background').style.backgroundImage = "url(resources/west-center-open.png)";
+        }
+        if(jMinus == 0 && iPlus == 0 && jPlus == 0) {
+            document.getElementById('background').style.backgroundImage = "url(resources/all-open.png)";
+        }
+        if(jMinus == 0 && iPlus == 1 && jPlus == 1) {
+            document.getElementById('background').style.backgroundImage = "url(resources/west-open.png)";
+        }
+        if(jMinus == 1 && jPlus == 1 && iPlus == 1) {
+            document.getElementById('background').style.backgroundImage = "url(resources/dead-end.png)";
+        }
     }
 
 
@@ -160,5 +205,6 @@ function addPictures(iPosition, jPosition, value) {
 
 function gameWon() {
     labyrinth = "<h1>Congrats, you won!</h1>"
+    document.getElementById('background').style.backgroundImage = "url(resources/all-open.png)";
     document.getElementById("frame").innerHTML = labyrinth
 }
