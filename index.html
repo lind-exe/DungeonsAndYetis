@@ -12,6 +12,8 @@
 <body>
     <div id="frame">
     </div>
+    <div id="background">
+    </div>
     <div id="statusDiv">
         <div id="buttonDiv">
             <input type="button" id="north" value="North" onclick="move(this.value)">
@@ -20,9 +22,10 @@
             <input type="button" id="south" value="South" onclick="move(this.value)">
         </div>
         <input type="button" id="startButton" value="Start game" onclick="start()">
-        <h2 id="points">Points: </h2>
+        <h2 id="points"></h2>
         <br>
         <h2 id="statusText"></h2>
+        <h2 id="compass">Direction: </h2>
     </div>
         <script src="script/script.js"></script>
 </body>

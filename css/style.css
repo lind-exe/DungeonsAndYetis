@@ -1,11 +1,20 @@
 #frame {
     padding: 20px;
-    width: 660px;
+    width: 650px;
     height: 620px;
-    background-color: whitesmoke;
+    border: none;
+    background-color: white;
+}
+#background {
+    /* background-image: url(/resources/Front\ Open.png); */
+    background-size:contain;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 150px;
+    float: right;
 }
 div {
-    background-color: aliceblue;
+    background-color: rgb(228, 233, 238);
     border: solid 1px black;
     width: 60px;
     height: 60px;
@@ -41,4 +50,19 @@ input {
 
 #wall {
     background-color: rgb(136, 79, 15);
+    color: black;
+}
+#path{
+    background-color: rgb(235, 213, 184);
+    color: black;
+}
+#player{
+    background-color: darkblue;
+    color: darkblue;
+}
+#loot {
+    background-color: gold;
+}
+#monster {
+    background-color: red;
 }
