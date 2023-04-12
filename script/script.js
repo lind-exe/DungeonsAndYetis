@@ -63,6 +63,8 @@ function drawLabyrinth(iPos, jPos) {
         }
     }
     document.getElementById("frame").innerHTML = labyrinth
+    let value = document.getElementById("compass").innerHTML 
+    addPictures(iPosition, jPosition, value)
 }
 
 function move(value) {
@@ -114,25 +116,37 @@ function move(value) {
     if (iPosition == 0 && jPosition == 4) {
         gameWon()
     }
-
-    addPictures(iPosition, jPosition, value)
 }
 
 function addPictures(iPosition, jPosition, value) {
-    //var deadEnd = "url(resources/dead\ End.png)"
-    // var frontOpen = "resources/Front\ Open.png"
-    // var rightOpen = "resources/Right\ open.png"
+    if (value == "North") {
+        if ((array[iPosition - 1][jPosition] == 0) && (array[iPosition][jPosition + 1] == 1) && (array[iPosition][jPosition - 1] == 1)) {
 
-    //var background = document.getElementById("background")
-    if (value == 'North') {
-        if (array[iPosition - 1] == 0 && array[jPosition + 1] == 1 && array[jPosition - 1] == 1) {
-            let img = document.createElement("img")
-            img.src = url("resources/Right\ open.png")
-            img.setAttribute("id", "background")
+            document.getElementById('background').style.backgroundImage="url(resources/center-open.png)";
         }
-        else if (array[iPosition - 1] == 1 && array[jPosition - 1] == 1 && array[jPosition + 1] == 0) {
-            background.style.backgroundImage = rightOpen
+        else if ((array[iPosition - 1][jPosition] == 1) && (array[iPosition][jPosition - 1] == 1) && (array[iPosition][jPosition + 1] == 0)) {
+            document.getElementById('background').style.backgroundImage="url(resources/east-open.png)";
+
         }
+        else {
+            document.getElementById("statusText").innerHTML = "hej"
+        }
+
+    }
+    else if(value == "East") {
+        if ((array[iPosition + 1][jPosition] == 1) && (array[iPosition][jPosition + 1] == 1) && (array[iPosition - 1][jPosition] == 0)) {
+
+            document.getElementById('background').style.backgroundImage="url(resources/west-open.png)";
+        }
+        else {
+            document.getElementById("statusText").innerHTML = "hej"
+        }
+    }
+    else if(value == "West") {
+
+    }
+    else if(value == "South") {
+        
     }
 
 
