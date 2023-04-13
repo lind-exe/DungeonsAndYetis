@@ -63,26 +63,30 @@
     height: 60px;
     width: 60px;
     position: absolute;
+    color:  transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 #up {
     top: 0;
     left: 60px;
+    background-image: url(/resources/aup.png);
 }
 #down{
     bottom: 0;
     left: 60px;
+    background-image: url(/resources/adown.png);
 }
 #left {
     left: 0;
     top: 60px;
+    background-image: url(/resources/aleft.png);
 }
 #right{
     right: 0;
     top: 60px;
-    color:  transparent;
-    background-image: url(/resources/arrow.jpg);
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-image: url(/resources/aright.png);
 }
 
 #compass p {
