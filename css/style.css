@@ -48,6 +48,38 @@
     position: relative;
     background-color: rgb(201, 194, 194, 0.7);
 }
+#compass2 {
+    border-radius: 20% 20%;
+    border-width: 1px;
+    width: 180px;
+    height: 180px;
+    position: relative;
+    background-color: rgb(201, 194, 194, 0.7);
+}
+#up, #left, #right, #down {
+    background-color: rgb(233, 230, 230);
+    border: none;
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+}
+#up {
+    top: 0;
+    left: 60px;
+}
+#down{
+    bottom: 0;
+    left: 60px;
+}
+#left {
+    left: 0;
+    top: 60px;
+}
+#right{
+    right: 0;
+    top: 60px;
+}
 
 #compass p {
     font-size: larger;
@@ -56,28 +88,32 @@
 }
 
 #dir1 {
+    position: absolute;
     top: -10px;
     left: 45px;
     color: red;
 }
 
 #dir2 {
+    position: absolute;
     left: 0;
     top: 20px;
 }
 
 #dir3 {
     right: 0;
+    position: absolute;
     top: 20px;
 }
 
 #dir4 {
     top: 50px;
+    position: absolute;
     left: 45px;
 }
 
 div {
-    background-color: rgb(228, 233, 238);
+    background-color: rgb(239, 241, 243);
     border: solid 1px black;
     width: 60px;
     height: 60px;
@@ -91,18 +127,17 @@ div {
     display: flex;
 }
 
-#buttonDiv {
-    border: double 5px rgb(31, 30, 30);
-    display: flex;
-    flex-wrap: wrap;
-    width: 190px;
-    height: 190px;
-}
-
 #choices {
     position: absolute;
     left: 810px;
     top: 80px;
+}
+
+#fight,
+#leave {
+    width: 100px;
+    height: 40px;
+    background-color: bisque;
 }
 
 #attack {
@@ -114,22 +149,11 @@ div {
     left: 500px;
 }
 
-input {
-    width: 190px;
-    height: 60px;
-    background-color: rgb(164, 217, 219);
-}
-
 #startButton {
     background-color: burlywood;
     width: 100px;
     position: absolute;
     right: 0;
-}
-
-#west,
-#east {
-    width: 95px;
 }
 
 #wall {

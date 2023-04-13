@@ -71,6 +71,10 @@ function move(value) {
     document.getElementById("statusText").innerHTML = "";
 
     if (value == 'North') {
+        document.getElementById("up").value = "North";
+        document.getElementById("left").value = "West";
+        document.getElementById("right").value = "East";
+        document.getElementById("down").value = "South";
         if (array[iPosition - 1][jPosition] != 1) {
             iPosition--;
             document.getElementById("direction").innerHTML = "North"
@@ -78,6 +82,10 @@ function move(value) {
         }
     }
     else if (value == 'West') {
+        document.getElementById("up").value = "West";
+        document.getElementById("left").value = "South";
+        document.getElementById("right").value = "North";
+        document.getElementById("down").value = "East";
         if (array[iPosition][jPosition - 1] != 1) {
             jPosition--;
             document.getElementById("direction").innerHTML = "West"
@@ -85,6 +93,10 @@ function move(value) {
         }
     }
     else if (value == 'East') {
+        document.getElementById("up").value = "East";
+        document.getElementById("left").value = "North";
+        document.getElementById("right").value = "South";
+        document.getElementById("down").value = "West";
         if (array[iPosition][jPosition + 1] != 1) {
             jPosition++;
             document.getElementById("direction").innerHTML = "East"
@@ -92,6 +104,10 @@ function move(value) {
         }
     }
     else if (value == 'South') {
+        document.getElementById("up").value = "South";
+        document.getElementById("left").value = "East";
+        document.getElementById("right").value = "West";
+        document.getElementById("down").value = "North";
         if (array[iPosition + 1][jPosition] != 1) {
             iPosition++;
             document.getElementById("direction").innerHTML = "South"
@@ -169,7 +185,7 @@ function addPictures(iPosition, jPosition, value) {
     changeCompass(value)
 }
 
-function fightMonster() { 
+function fightMonster() {
     document.getElementById('monsterImg').style.backgroundImage = "url(resources/kenny1.png)";
     document.getElementById("statusText").innerHTML = "The monster is angry, fight for your life!"
     document.getElementById("attack").style.backgroundColor = "red";
