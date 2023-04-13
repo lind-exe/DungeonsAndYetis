@@ -6,7 +6,7 @@ let labyrinth
 let array = [
     [1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
     [1, 3, 0, 1, 0, 0, 0, 1, 0, 1],
-    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 0, 1, 0, 1, 0, 1],
     [1, 0, 1, 0, 1, 2, 0, 0, 2, 1],
     [1, 0, 1, 0, 0, 1, 0, 1, 0, 1],
     [1, 0, 1, 0, 1, 1, 0, 1, 0, 1],
@@ -23,15 +23,16 @@ function start() {
     iPosition = 9
     jPosition = 5
     points = 0
+    document.getElementById("up").value = "North";
+    document.getElementById("left").value = "West";
+    document.getElementById("right").value = "East";
+    document.getElementById("down").value = "South";
     document.getElementById("statusText").innerHTML = ""
-    document.getElementById("direction").innerHTML = "North"
     document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
 
 
     playMusic();
     drawLabyrinth(iPosition, jPosition);
-
-
 }
 
 function playMusic() {
@@ -75,7 +76,7 @@ function drawLabyrinth(iPos, jPos) {
         }
     }
     document.getElementById("frame").innerHTML = labyrinth
-    let value = document.getElementById("direction").innerHTML
+    let value = document.getElementById("up").value
 
     addPictures(iPosition, jPosition, value)
 }
@@ -86,46 +87,42 @@ function move(value) {
     document.getElementById("statusText").innerHTML = "";
 
     if (value == 'North') {
-        document.getElementById("up").value = "North";
-        document.getElementById("left").value = "West";
-        document.getElementById("right").value = "East";
-        document.getElementById("down").value = "South";
         if (array[iPosition - 1][jPosition] != 1) {
             iPosition--;
-            document.getElementById("direction").innerHTML = "North"
+            document.getElementById("up").value = "North";
+            document.getElementById("left").value = "West";
+            document.getElementById("right").value = "East";
+            document.getElementById("down").value = "South";
             drawLabyrinth(iPosition, jPosition)
         }
     }
     else if (value == 'West') {
-        document.getElementById("up").value = "West";
-        document.getElementById("left").value = "South";
-        document.getElementById("right").value = "North";
-        document.getElementById("down").value = "East";
         if (array[iPosition][jPosition - 1] != 1) {
             jPosition--;
-            document.getElementById("direction").innerHTML = "West"
+            document.getElementById("up").value = "West";
+            document.getElementById("left").value = "South";
+            document.getElementById("right").value = "North";
+            document.getElementById("down").value = "East";
             drawLabyrinth(iPosition, jPosition)
         }
     }
     else if (value == 'East') {
-        document.getElementById("up").value = "East";
-        document.getElementById("left").value = "North";
-        document.getElementById("right").value = "South";
-        document.getElementById("down").value = "West";
         if (array[iPosition][jPosition + 1] != 1) {
             jPosition++;
-            document.getElementById("direction").innerHTML = "East"
+            document.getElementById("up").value = "East";
+            document.getElementById("left").value = "North";
+            document.getElementById("right").value = "South";
+            document.getElementById("down").value = "West";
             drawLabyrinth(iPosition, jPosition)
         }
     }
     else if (value == 'South') {
-        document.getElementById("up").value = "South";
-        document.getElementById("left").value = "East";
-        document.getElementById("right").value = "West";
-        document.getElementById("down").value = "North";
         if (array[iPosition + 1][jPosition] != 1) {
             iPosition++;
-            document.getElementById("direction").innerHTML = "South"
+            document.getElementById("up").value = "South";
+            document.getElementById("left").value = "East";
+            document.getElementById("right").value = "West";
+            document.getElementById("down").value = "North";
             drawLabyrinth(iPosition, jPosition)
         }
     }
@@ -212,6 +209,7 @@ function fight() {
     document.getElementById("statusText").innerHTML = "You loot the monster and receive 500 points"
     document.getElementById('monsterImg').style.backgroundImage = "";
     document.getElementById("attack").style.backgroundColor = "";
+    document.getElementById("attack").style.color = "";
 }
 function leaveMonster() {
     document.getElementById("statusText").innerHTML = "The monster gifts you 100 points to show their gratitude"

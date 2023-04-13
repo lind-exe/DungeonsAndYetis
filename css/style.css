@@ -49,16 +49,16 @@
     background-color: rgb(201, 194, 194, 0.7);
 }
 #compass2 {
-    border-radius: 20% 20%;
+    border-radius: 10% 10%;
     border-width: 1px;
     width: 180px;
     height: 180px;
     position: relative;
-    background-color: rgb(201, 194, 194, 0.7);
+    background-color: rgba(221, 220, 220, 0.7);
 }
 #up, #left, #right, #down {
     background-color: rgb(233, 230, 230);
-    border: none;
+    border: 4px gray outset;
     border-radius: 5px;
     height: 60px;
     width: 60px;
@@ -79,6 +79,10 @@
 #right{
     right: 0;
     top: 60px;
+    color:  transparent;
+    background-image: url(/resources/arrow.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 #compass p {
