@@ -173,27 +173,27 @@ function calculateBackground(leftValue, rightValue, frontValue) {
     if (leftValue == 1 && rightValue == 1 && frontValue == 1) {
         document.getElementById('background').style.backgroundImage = "url(resources/dead-end.png)";
     }
-    if ((leftValue == 0 && rightValue == 0 && frontValue == 0) || (leftValue == 2 && rightValue == 2 && frontValue == 2) || (leftValue == 3 && rightValue == 3 && frontValue == 3) || (leftValue == 0 && rightValue == 0 && frontValue == 2) || (leftValue == 0 && rightValue == 0 && frontValue == 3) || (leftValue == 0 && rightValue == 2 && frontValue == 3) || (leftValue == 0 && rightValue == 3 && frontValue == 2) || (leftValue == 2 && rightValue == 0 && frontValue == 3) || (leftValue == 2 && rightValue == 3 && frontValue == 0) || (leftValue == 3 && rightValue == 0 && frontValue == 3) || (leftValue == 3 && rightValue == 2 && frontValue == 3) || (leftValue == 3 && rightValue == 3 && frontValue == 0) || (leftValue == 3 && rightValue == 0 && frontValue == 2)) {
+    if ((leftValue != 1 && rightValue != 1 && frontValue != 1)) {
         document.getElementById('background').style.backgroundImage = "url(resources/all-open.png)";
     }
 
-    if ((leftValue == 1 && rightValue == 1 && frontValue == 0) || (leftValue == 1 && rightValue == 1 && frontValue == 2) || (leftValue == 1 && rightValue == 1 && frontValue == 3)) {
+    if ((leftValue == 1 && rightValue == 1 && frontValue != 1)) {
         document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
     }
-    if ((leftValue == 1 && rightValue == 0 && frontValue == 1) || (leftValue == 1 && rightValue == 2 && frontValue == 1) || (leftValue == 1 && rightValue == 3 && frontValue == 1)) {
+    if ((leftValue == 1 && rightValue != 1 && frontValue == 1)) {
         document.getElementById('background').style.backgroundImage = "url(resources/east-open.png)";
     }
-    if ((leftValue == 0 && rightValue == 1 && frontValue == 1) || (leftValue == 2 && rightValue == 1 && frontValue == 1) || (leftValue == 3 && rightValue == 1 && frontValue == 1)) {
+    if ((leftValue != 1 && rightValue == 1 && frontValue == 1)) {
         document.getElementById('background').style.backgroundImage = "url(resources/west-open.png)";
     }
 
-    if ((leftValue == 1 && rightValue == 0 && frontValue == 0) || (leftValue == 1 && rightValue == 2 && frontValue == 2) || (leftValue == 1 && rightValue == 3 && frontValue == 3) || (leftValue == 1 && rightValue == 0 && frontValue == 2) || (leftValue == 1 && rightValue == 0 && frontValue == 3) || (leftValue == 1 && rightValue == 2 && frontValue == 0) || (leftValue == 1 && rightValue == 3 && frontValue == 0)) {
+    if ((leftValue == 1 && rightValue != 1 && frontValue != 1)) {
         document.getElementById('background').style.backgroundImage = "url(resources/east-center-open.png)";
     }
-    if ((leftValue == 0 && rightValue == 1 && frontValue == 0) || (leftValue == 2 && rightValue == 1 && frontValue == 2) || (leftValue == 3 && rightValue == 1 && frontValue == 3) || (leftValue == 0 && rightValue == 1 && frontValue == 2) || (leftValue == 0 && rightValue == 1 && frontValue == 3) || (leftValue == 2 && rightValue == 1 && frontValue == 0) || (leftValue == 3 && rightValue == 1 && frontValue == 0)) {
+    if ((leftValue != 1 && rightValue == 1 && frontValue != 1)) {
         document.getElementById('background').style.backgroundImage = "url(resources/west-center-open.png)";
     }
-    if ((leftValue == 0 && rightValue == 0 && frontValue == 1) || (leftValue == 2 && rightValue == 2 && frontValue == 1) || (leftValue == 3 && rightValue == 3 && frontValue == 1) || (leftValue == 0 && rightValue == 2 && frontValue == 1) || (leftValue == 0 && rightValue == 3 && frontValue == 1) || (leftValue == 2 && rightValue == 0 && frontValue == 1) || (leftValue == 3 && rightValue == 0 && frontValue == 1)) {
+    if ((leftValue != 1 && rightValue != 1 && frontValue == 1)) {
         document.getElementById('background').style.backgroundImage = "url(resources/west-east-open.png)";
     }
 
