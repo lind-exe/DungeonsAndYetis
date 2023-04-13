@@ -66,6 +66,10 @@ function drawLabyrinth(iPos, jPos) {
 }
 
 function move(value) {
+    document.getElementById('lootImg').style.backgroundImage = "";
+    document.getElementById('monsterImg').style.backgroundImage = "";
+    document.getElementById("statusText").innerHTML = "";
+
     if (value == 'North') {
         if (array[iPosition - 1][jPosition] != 1) {
             iPosition--;
@@ -150,23 +154,37 @@ function addPictures(iPosition, jPosition, value) {
     }
 
     if (array[iPosition][jPosition] == 2) {
-        points += 500
+        points += 300
         array[iPosition][jPosition] = 0
-        document.getElementById("statusText").innerHTML = "You found a treasure containing 500 points!"
+        document.getElementById('lootImg').style.backgroundImage = "url(resources/loot.png)";
+        document.getElementById("statusText").innerHTML = "You found a treasure containing 300 points!"
     }
     if (array[iPosition][jPosition] == 3) {
         //knapp dyker upp 
-        document.getElementById("statusText").innerHTML = "You encounter a monster, fight for your life!"
-        // bakgrunden "ändras"
+        document.getElementById("statusText").innerHTML = "You encounter a monster, fight or leave it alone?"
+        document.getElementById('monsterImg').style.backgroundImage = "url(resources/kennyrich.png)";
         // man ska inte kunna gå förrän monstret är borta
     }
 
     changeCompass(value)
 }
 
-function fightMonster() { // knapp fight onclick
-    // gör om rutan till en path
-    // ge spelaren 200 poäng 
+function fightMonster() { 
+    document.getElementById('monsterImg').style.backgroundImage = "url(resources/kenny1.png)";
+    document.getElementById("statusText").innerHTML = "The monster is angry, fight for your life!"
+    document.getElementById("attack").style.backgroundColor = "red";
+    document.getElementById("attack").style.color = "black";
+}
+function fight() {
+    points += 500
+    array[iPosition][jPosition] = 0
+    document.getElementById("statusText").innerHTML = "You loot the monster and receive 500 points"
+    document.getElementById('monsterImg').style.backgroundImage = "";
+    document.getElementById("attack").style.backgroundColor = "";
+}
+function leaveMonster() {
+    document.getElementById("statusText").innerHTML = "The monster gifts you 100 points to show their gratitude"
+    points += 100
 }
 
 function calculateBackground(leftValue, rightValue, frontValue) {

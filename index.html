@@ -19,6 +19,7 @@
         </div>
         <div id="monsterImg"></div>
         <div id="lootImg"></div>
+        <input type="button" id="attack" value="Attack!" onclick="fight()">
     </div>
     <div id="statusDiv">
         <div id="buttonDiv">
@@ -32,6 +33,11 @@
         <br>
         <h2 id="statusText"></h2>
         <h2 id="direction">Direction: </h2>
+
+        <div id="choices">
+            <input type="button" id="fight" value="Fight" onclick="fightMonster()">
+            <input type="button" id="leave" value="Leave" onclick="leaveMonster()">
+        </div>
     </div>
     <div id="frame">
     </div>

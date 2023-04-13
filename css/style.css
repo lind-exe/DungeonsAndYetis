@@ -5,34 +5,41 @@
     border: none;
     background-color: white;
 }
+
 #background {
-    /* background-image: url(/resources/Front\ Open.png); nån startbild här??*/ 
-    background-size:contain;
+    /* background-image: url(/resources/Front\ Open.png); nån startbild här??*/
+    background-size: contain;
     background-repeat: no-repeat;
     width: 1100px;
     height: 450px;
     position: relative;
-    float: right;
+    float: left;
 }
+
 #monsterImg {
     position: absolute;
     background-color: transparent;
     border: transparent;
-    width: 350px;
-    height: 300px;
-    top: 110px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 288px;
+    height: 346px;
+    top: 100px;
     left: 400px;
 
 }
+
 #lootImg {
     position: absolute;
     background-color: transparent;
+    background-size: contain;
     border: transparent;
     width: 250px;
-    height: 200px;
-    top: 220px;
+    height: 190px;
+    top: 230px;
     left: 450px;
 }
+
 #compass {
     border-radius: 40% 40%;
     border-width: 4px;
@@ -47,41 +54,64 @@
     position: absolute;
     font-weight: bold;
 }
+
 #dir1 {
     top: -10px;
     left: 45px;
     color: red;
 }
+
 #dir2 {
-    left:0;
+    left: 0;
     top: 20px;
 }
+
 #dir3 {
     right: 0;
     top: 20px;
 }
+
 #dir4 {
     top: 50px;
     left: 45px;
 }
+
 div {
     background-color: rgb(228, 233, 238);
     border: solid 1px black;
     width: 60px;
     height: 60px;
     display: inline-block;
+    position: relative;
 }
+
 #statusDiv {
-    width: 680px;
+    width: 1000px;
     height: 200px;
     display: flex;
 }
+
 #buttonDiv {
     border: double 5px rgb(31, 30, 30);
     display: flex;
     flex-wrap: wrap;
     width: 190px;
     height: 190px;
+}
+
+#choices {
+    position: absolute;
+    left: 810px;
+    top: 80px;
+}
+
+#attack {
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    position: absolute;
+    top: 300px;
+    left: 500px;
 }
 
 input {
@@ -93,9 +123,12 @@ input {
 #startButton {
     background-color: burlywood;
     width: 100px;
+    position: absolute;
+    right: 0;
 }
 
-#west, #east{
+#west,
+#east {
     width: 95px;
 }
 
@@ -103,17 +136,21 @@ input {
     background-color: rgb(136, 79, 15);
     color: black;
 }
-#path{
+
+#path {
     background-color: rgb(235, 213, 184);
     color: black;
 }
-#player{
+
+#player {
     background-color: darkblue;
     color: darkblue;
 }
+
 #loot {
     background-color: gold;
 }
+
 #monster {
     background-color: red;
 }
