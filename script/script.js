@@ -1,7 +1,7 @@
-
+let play = document.getElementById('startButton')
 let iPosition
 let jPosition
-
+let audio = new Audio("audio.mp3");
 let labyrinth
 let array = [
     [1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
@@ -26,7 +26,22 @@ function start() {
     document.getElementById("statusText").innerHTML = ""
     document.getElementById("direction").innerHTML = "North"
     document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
-    drawLabyrinth(iPosition, jPosition)
+
+
+    playMusic();
+    drawLabyrinth(iPosition, jPosition);
+
+
+}
+
+function playMusic() {
+    audio.play()
+    audio.volume = 0.1
+
+}
+
+function stopMusic() {
+    audio.load()
 }
 
 function drawLabyrinth(iPos, jPos) {
