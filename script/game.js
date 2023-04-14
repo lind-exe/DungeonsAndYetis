@@ -18,6 +18,8 @@ let array = [
 ]
 let points = 0
 
+start()
+
 function load() {
     // loading / progressbar ca 4 sek
     

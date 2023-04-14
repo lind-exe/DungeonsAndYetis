@@ -20,3 +20,37 @@ function getJoke() {
             })
         })
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function startgame() {
+    let button = document.getElementById("button")
+
+    
+}
