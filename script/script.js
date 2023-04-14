@@ -197,10 +197,10 @@ function addPictures(iPosition, jPosition, value) {
         // man ska inte kunna gå förrän monstret är borta
     }
     if (array[iPosition][jPosition] == 4) {
-        //knapp dyker upp 
+        // knapp till dörren?
         document.getElementById("statusText").innerHTML = "You found the exit, click the door to leave"
         document.getElementById('monsterImg').style.backgroundImage = "url(resources/exit.png)";
-        // man ska inte kunna gå förrän monstret är borta
+        // idk varför 
     }
 
     changeCompass(value)
@@ -257,6 +257,6 @@ function calculateBackground(leftValue, rightValue, frontValue) {
 
 function gameWon() {
     labyrinth = "<h1>Congrats, you won!</h1>"
-    document.getElementById('background').style.backgroundImage = "url(resources/exit.png)"; // göra en unik för slutet(utomhus/en dörr?)
+    document.getElementById('background').style.backgroundImage = "url(resources/exit.png)"; // göra en unik för slutet(utomhus/en dörr?) -- done
     document.getElementById("frame").innerHTML = labyrinth
 }
