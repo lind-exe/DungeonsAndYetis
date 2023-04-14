@@ -16,6 +16,55 @@
     float: left;
 }
 
+#miniMap {
+    width: 100px;
+    height: 180px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    background-color: rgb(95, 94, 94);
+    right: 0;
+}
+
+#miniPlayer {
+    width: 10px;
+    height: 10px;
+    border: none;
+    background-color: rgb(42, 149, 192);
+}
+
+#miniGoal {
+    width: 10px;
+    height: 10px;
+    border: none;
+    background-color: whitesmoke;
+}
+
+#miniSquare{
+    border: none;
+    background-color: rgb(32, 23, 23);
+    width: 10px;
+    height: 10px;
+}
+/* #miniWall{
+    border: none;
+    width: 10px;
+    height: 10px;
+    background-color: brown;
+} 
+#miniMonster{
+    border: none;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+}
+#miniLoot{
+    border: none;
+    width: 10px;
+    height: 10px;
+    background-color: gold;
+} */
+
 #monsterImg {
     position: absolute;
     background-color: transparent;

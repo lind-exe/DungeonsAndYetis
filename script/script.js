@@ -3,6 +3,7 @@ let iPosition
 let jPosition
 let audio = new Audio("audio.mp3");
 let labyrinth
+let miniMap
 let array = [
     [1, 1, 1, 1, 4, 1, 1, 1, 1, 1],
     [1, 3, 0, 0, 0, 1, 0, 1, 0, 1],
@@ -19,7 +20,6 @@ let points = 0
 
 
 function start() {
-    // någon metod där den slumpar ut loot och monster istället för en path 
     iPosition = 9
     jPosition = 5
     points = 0
@@ -49,6 +49,7 @@ function drawLabyrinth(iPos, jPos) {
     document.getElementById("points").innerHTML = "Points: " + points
 
     labyrinth = ""
+    miniMap = ""
     let i = 0
     let j = 0
     var innerArray = array[i].length;
@@ -60,25 +61,35 @@ function drawLabyrinth(iPos, jPos) {
             var current = array[i][j]
             if (iPos == i && jPos == j) {
                 labyrinth += "<div id='player'> X </div>"
+                miniMap += "<div id='miniPlayer'></div>"
             }
             else if (current == 1) {
                 labyrinth += "<div id='wall'>i." + i + "| j." + j + "</div>"
+                // miniMap += "<div id='miniWall'></div>"
+                miniMap += "<div id='miniSquare'></div>"
             }
             else if (current == 2) {
                 labyrinth += "<div id='loot'> Loot </div>"
+                // miniMap += "<div id='miniLoot'></div>"
+                miniMap += "<div id='miniSquare'></div>"
             }
             else if (current == 3) {
                 labyrinth += "<div id='monster'> M </div>"
+                // miniMap += "<div id='miniMonster'></div>"
+                miniMap += "<div id='miniSquare'></div>"
             }
             else if (current == 4) {
                 labyrinth += "<div id='exit'> E </div>"
+                miniMap += "<div id='miniGoal'></div>"
             }
             else if (current == 0) {
                 labyrinth += "<div id='path'> i." + i + "| j." + j + "</div>"
+                miniMap += "<div id='miniSquare'></div>"
             }
         }
     }
     document.getElementById("frame").innerHTML = labyrinth
+    document.getElementById("miniMap").innerHTML = miniMap
     let value = document.getElementById("up").value
 
     addPictures(iPosition, jPosition, value)
