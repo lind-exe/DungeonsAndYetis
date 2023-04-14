@@ -1,28 +1,45 @@
+
+#everything {
+    border: groove 10px rgb(0, 0, 0);
+    width: 1200px;
+    margin: 0px auto;
+}
+
+
+body {
+    background-image: url(/resources/winxop.jpg);
+}
+
 #frame {
     padding: 20px;
     width: 650px;
     height: 620px;
     border: none;
     background-color: white;
+    display: none; 
+    /* visa kartan */
 }
+
+
 
 #background {
     /* background-image: url(/resources/Front\ Open.png); nån startbild här??*/
     background-size: contain;
     background-repeat: no-repeat;
-    width: 1100px;
-    height: 450px;
-    position: relative;
-    float: left;
+    width: 1200px;
+    height: 480px;
+    margin: 0px auto
 }
 
 #miniMap {
-    width: 125px;
+    width: 105px;
     height: 180px;
     padding: 5px;
-    position: absolute;
     background-color: rgb(95, 94, 94);
-    right: 0;
+    margin-left: 90%;
+    
+    
+    
 }
 
 #miniPlayer {
@@ -41,13 +58,25 @@
     background-color: whitesmoke;
 }
 
-#miniSquare{
+#miniSquare {
+    
     /* border: none; */
     background-color: rgb(32, 23, 23);
     display: inline-block;
     width: 10px;
     height: 10px;
 }
+
+#points {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#statusText {
+    position: relative;
+    top: 19px;
+}
+
 /* #miniWall{
     border: none;
     width: 10px;
@@ -67,28 +96,39 @@
     background-color: gold;
 } */
 
+#artcontainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: -70px auto;
+    width: 250px;
+    height: 200px;
+}
+
+
+
 #monsterImg {
-    position: absolute;
+    position: relative;
+    top: -40px;
+    left: 0;
     background-color: transparent;
     border: transparent;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 288px;
-    height: 346px;
-    top: 100px;
-    left: 400px;
-
-}
+    width: 250px;
+    height: 290px;
+    }
 
 #lootImg {
     position: absolute;
+    top: 30px;
+    left: 30px;
     background-color: transparent;
     background-size: contain;
+    background-repeat: no-repeat;
     border: transparent;
     width: 250px;
-    height: 190px;
-    top: 230px;
-    left: 450px;
+    height: 200px;
 }
 
 #compass {
@@ -98,44 +138,58 @@
     height: 100px;
     position: relative;
     background-color: rgb(201, 194, 194, 0.7);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9em;
 }
+
 #compass2 {
     border-radius: 10% 10%;
     border-width: 1px;
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
     position: relative;
-    background-color: rgba(221, 220, 220, 0.7);
+    left: 22px;
+    top: 14px;
+    /* background-color: rgba(221, 220, 220, 0.7); */
+    margin: 9px;
 }
-#up, #left, #right, #down {
-    background-color: rgb(233, 230, 230);
+
+#up,
+#left,
+#right,
+#down {
+    background-color: rgb(255, 255, 255);
     border: 4px gray outset;
     border-radius: 5px;
-    height: 60px;
-    width: 60px;
+    height: 55px;
+    width: 55px;
     position: absolute;
-    color:  transparent;
+    color: transparent;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #up {
     top: 0;
     left: 60px;
     background-image: url(/resources/aup.png);
 }
-#down{
+
+#down {
     bottom: 0;
     left: 60px;
     background-image: url(/resources/adown.png);
 }
+
 #left {
     left: 0;
     top: 60px;
     background-image: url(/resources/aleft.png);
 }
-#right{
-    right: 0;
+
+#right {
+    right: -4px;
     top: 60px;
     background-image: url(/resources/aright.png);
 }
@@ -155,23 +209,29 @@
 
 #dir2 {
     position: absolute;
-    left: 0;
-    top: 20px;
+    left: 5px;
+    top: 23px;
 }
 
 #dir3 {
-    right: 0;
+    right: 7px;
     position: absolute;
-    top: 20px;
+    top: 21px;
 }
 
 #dir4 {
-    top: 50px;
+    top: 60px;
     position: absolute;
-    left: 45px;
+    left: 42px;
 }
 
-div {
+h2 {
+    margin: 5px;
+    font-size: 1em;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#frame div {
     background-color: rgb(239, 241, 243);
     border: solid 1px black;
     width: 60px;
@@ -181,22 +241,51 @@ div {
 }
 
 #statusDiv {
-    width: 1000px;
+    position: relative;
+    width: 1200px;
     height: 200px;
     display: flex;
+    margin: 0px auto;
+    background-color: rgba(176, 185, 185, 0.452);
+    
+}
+
+#statusContainer {
+    background-color: white;
+    border: solid 1px rgb(165, 164, 164);
+    width: 480px;
+    margin: 5px;
+}
+
+
+#stopButton {
+    height: 50px;
+    position:absolute;
+    bottom: 0;
+    right: 0;
+    margin: 5px;
+    font-size: 0.7em;
+    font-family: 'Press Start 2P', cursive;
 }
 
 #choices {
-    position: absolute;
-    left: 810px;
-    top: 80px;
+    position: relative;
+    top:110px;
+    left: 10px;
+    margin: 0px auto;
+    width: 205px;
+    height: 30px;
+    z-index: 1;
+    
 }
 
 #fight,
 #leave {
     width: 100px;
     height: 40px;
-    background-color: bisque;
+    background-color: #62220d;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
 }
 
 #attack {
@@ -204,15 +293,10 @@ div {
     color: transparent;
     border: none;
     position: absolute;
-    top: 300px;
-    left: 500px;
-}
-
-#startButton {
-    background-color: burlywood;
-    width: 100px;
-    position: absolute;
-    right: 0;
+    left: 50px;
+    top: -60px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
 }
 
 #wall {

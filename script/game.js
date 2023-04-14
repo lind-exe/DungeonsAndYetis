@@ -217,6 +217,11 @@ function addPictures(iPosition, jPosition, value) {
         //knapp dyker upp 
         document.getElementById("statusText").innerHTML = "You encounter a yeti, fight or leave it alone?"
         document.getElementById('monsterImg').style.backgroundImage = "url(resources/kennyrich.png)";
+
+
+        // fightmonster()
+
+
         // man ska inte kunna gå förrän monstret är borta
     }
     if (array[iPosition][jPosition] == 4) {
@@ -230,6 +235,12 @@ function addPictures(iPosition, jPosition, value) {
 }
 
 function fightMonster() {
+
+
+    // let choicemenu = doc.get(choices)
+
+    //choicemenu.createelement()
+
     document.getElementById('monsterImg').style.backgroundImage = "url(resources/kenny1.png)";
     document.getElementById("statusText").innerHTML = "The yeti is angry, fight for your life!"
     document.getElementById("attack").style.backgroundColor = "red";
