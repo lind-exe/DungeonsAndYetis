@@ -4,15 +4,15 @@ let jPosition
 let audio = new Audio("audio.mp3");
 let labyrinth
 let array = [
-    [1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
-    [1, 3, 0, 1, 0, 0, 0, 1, 0, 1],
-    [1, 0, 1, 0, 0, 1, 0, 1, 0, 1],
-    [1, 0, 1, 0, 1, 2, 0, 0, 2, 1],
-    [1, 0, 1, 0, 0, 1, 0, 1, 0, 1],
-    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1],
-    [1, 2, 0, 0, 1, 0, 0, 1, 0, 1],
-    [1, 0, 1, 0, 0, 1, 0, 3, 0, 1],
-    [1, 0, 0, 0, 1, 0, 0, 1, 0, 1],
+    [1, 1, 1, 1, 4, 1, 1, 1, 1, 1],
+    [1, 3, 0, 0, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 2, 1, 1, 1, 1, 0, 1],
+    [1, 0, 1, 1, 0, 2, 0, 1, 2, 1],
+    [1, 0, 1, 0, 0, 1, 0, 0, 1, 1],
+    [1, 0, 1, 0, 1, 1, 1, 0, 0, 1],
+    [1, 2, 0, 0, 1, 1, 1, 1, 0, 1],
+    [1, 0, 1, 0, 0, 1, 3, 1, 0, 1],
+    [1, 0, 0, 0, 1, 0, 0, 0, 0, 1],
     [1, 1, 1, 1, 1, 0, 1, 1, 1, 1]
 ]
 let points = 0
@@ -27,7 +27,7 @@ function start() {
     document.getElementById("left").value = "West";
     document.getElementById("right").value = "East";
     document.getElementById("down").value = "South";
-    document.getElementById("statusText").innerHTML = ""
+    document.getElementById("statusText").innerHTML = "";
     document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
 
 
@@ -69,6 +69,9 @@ function drawLabyrinth(iPos, jPos) {
             }
             else if (current == 3) {
                 labyrinth += "<div id='monster'> M </div>"
+            }
+            else if (current == 4) {
+                labyrinth += "<div id='exit'> E </div>"
             }
             else if (current == 0) {
                 labyrinth += "<div id='path'> i." + i + "| j." + j + "</div>"
@@ -185,12 +188,18 @@ function addPictures(iPosition, jPosition, value) {
         points += 300
         array[iPosition][jPosition] = 0
         document.getElementById('lootImg').style.backgroundImage = "url(resources/loot.png)";
-        document.getElementById("statusText").innerHTML = "You found a treasure containing 300 points!"
+        document.getElementById("statusText").innerHTML = "You found a treasure chest containing 300 points!"
     }
     if (array[iPosition][jPosition] == 3) {
         //knapp dyker upp 
-        document.getElementById("statusText").innerHTML = "You encounter a monster, fight or leave it alone?"
+        document.getElementById("statusText").innerHTML = "You encounter a yeti, fight or leave it alone?"
         document.getElementById('monsterImg').style.backgroundImage = "url(resources/kennyrich.png)";
+        // man ska inte kunna gå förrän monstret är borta
+    }
+    if (array[iPosition][jPosition] == 4) {
+        //knapp dyker upp 
+        document.getElementById("statusText").innerHTML = "You found the exit, click the door to leave"
+        document.getElementById('monsterImg').style.backgroundImage = "url(resources/exit.png)";
         // man ska inte kunna gå förrän monstret är borta
     }
 
@@ -199,20 +208,20 @@ function addPictures(iPosition, jPosition, value) {
 
 function fightMonster() {
     document.getElementById('monsterImg').style.backgroundImage = "url(resources/kenny1.png)";
-    document.getElementById("statusText").innerHTML = "The monster is angry, fight for your life!"
+    document.getElementById("statusText").innerHTML = "The yeti is angry, fight for your life!"
     document.getElementById("attack").style.backgroundColor = "red";
     document.getElementById("attack").style.color = "black";
 }
 function fight() {
     points += 500
     array[iPosition][jPosition] = 0
-    document.getElementById("statusText").innerHTML = "You loot the monster and receive 500 points"
+    document.getElementById("statusText").innerHTML = "You loot the yeti and receive 500 points"
     document.getElementById('monsterImg').style.backgroundImage = "";
     document.getElementById("attack").style.backgroundColor = "";
     document.getElementById("attack").style.color = "";
 }
 function leaveMonster() {
-    document.getElementById("statusText").innerHTML = "The monster gifts you 100 points to show their gratitude"
+    document.getElementById("statusText").innerHTML = "The yeti gifts you 100 points"
     points += 100
 }
 
@@ -248,6 +257,6 @@ function calculateBackground(leftValue, rightValue, frontValue) {
 
 function gameWon() {
     labyrinth = "<h1>Congrats, you won!</h1>"
-    document.getElementById('background').style.backgroundImage = "url(resources/all-open.png)"; // göra en unik för slutet(utomhus/en dörr?)
+    document.getElementById('background').style.backgroundImage = "url(resources/exit.png)"; // göra en unik för slutet(utomhus/en dörr?)
     document.getElementById("frame").innerHTML = labyrinth
 }
