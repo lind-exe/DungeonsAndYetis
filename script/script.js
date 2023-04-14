@@ -86,6 +86,8 @@ function move(value) {
     document.getElementById('monsterImg').style.backgroundImage = "";
     document.getElementById("statusText").innerHTML = "";
 
+    let stepSound = new Audio("step2.mp3");
+
     if (value == 'North') {
         if (array[iPosition - 1][jPosition] != 1) {
             iPosition--;
@@ -93,6 +95,7 @@ function move(value) {
             document.getElementById("left").value = "West";
             document.getElementById("right").value = "East";
             document.getElementById("down").value = "South";
+            stepSound.play()
             drawLabyrinth(iPosition, jPosition)
         }
     }
@@ -103,6 +106,7 @@ function move(value) {
             document.getElementById("left").value = "South";
             document.getElementById("right").value = "North";
             document.getElementById("down").value = "East";
+            stepSound.play()
             drawLabyrinth(iPosition, jPosition)
         }
     }
@@ -113,6 +117,7 @@ function move(value) {
             document.getElementById("left").value = "North";
             document.getElementById("right").value = "South";
             document.getElementById("down").value = "West";
+            stepSound.play()
             drawLabyrinth(iPosition, jPosition)
         }
     }
@@ -123,6 +128,7 @@ function move(value) {
             document.getElementById("left").value = "East";
             document.getElementById("right").value = "West";
             document.getElementById("down").value = "North";
+            stepSound.play()
             drawLabyrinth(iPosition, jPosition)
         }
     }
