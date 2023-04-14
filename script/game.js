@@ -6,18 +6,22 @@ let labyrinth
 let miniMap
 let array = [
     [1, 1, 1, 1, 4, 1, 1, 1, 1, 1],
-    [1, 3, 0, 0, 0, 1, 0, 1, 0, 1],
+    [1, 3, 0, 0, 0, 1, 0, 0, 0, 1],
     [1, 0, 1, 2, 1, 1, 1, 1, 0, 1],
-    [1, 0, 1, 1, 0, 2, 0, 1, 2, 1],
-    [1, 0, 1, 0, 0, 1, 0, 0, 1, 1],
-    [1, 0, 1, 0, 1, 1, 1, 0, 0, 1],
-    [1, 2, 0, 0, 1, 1, 1, 1, 0, 1],
-    [1, 0, 1, 0, 0, 1, 3, 1, 0, 1],
-    [1, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1, 0, 2, 1],
+    [1, 0, 1, 0, 1, 0, 0, 0, 1, 1],
+    [1, 1, 1, 0, 1, 0, 1, 0, 0, 1],
+    [1, 2, 0, 0, 1, 0, 0, 1, 1, 1],
+    [1, 0, 1, 0, 1, 1, 3, 1, 2, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 1, 1, 1, 1, 0, 1, 1, 1, 1]
 ]
 let points = 0
 
+function load() {
+    // loading / progressbar ca 4 sek
+    
+}
 
 function start() {
     iPosition = 9
@@ -54,6 +58,9 @@ function drawLabyrinth(iPos, jPos) {
     let j = 0
     var innerArray = array[i].length;
 
+    if (array[iPosition][jPosition] == 4) {
+        gameWon()
+    }
 
     for (i = 0; i < array.length; i++) {
 
@@ -146,9 +153,6 @@ function move(value) {
             drawLabyrinth(iPosition, jPosition)
         }
     }
-    if (iPosition == 0 && jPosition == 4) {
-        gameWon()
-    }
 }
 
 function changeCompass(direction) {
@@ -216,7 +220,7 @@ function addPictures(iPosition, jPosition, value) {
     if (array[iPosition][jPosition] == 4) {
         // knapp till dörren?
         document.getElementById("statusText").innerHTML = "You found the exit, click the door to leave"
-        document.getElementById('monsterImg').style.backgroundImage = "url(resources/exit.png)";
+        // document.getElementById('monsterImg').style.backgroundImage = "url(resources/exit.png)"; // du sätteer den två gånger
         // idk varför 
     }
 
@@ -274,6 +278,6 @@ function calculateBackground(leftValue, rightValue, frontValue) {
 
 function gameWon() {
     labyrinth = "<h1>Congrats, you won!</h1>"
-    document.getElementById('background').style.backgroundImage = "url(resources/exit.png)"; // göra en unik för slutet(utomhus/en dörr?) -- done
+    document.getElementById('background').style.backgroundImage = "url(resources/exit.png)"; // du sätter den två gånger
     document.getElementById("frame").innerHTML = labyrinth
 }

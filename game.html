@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doom</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="background">
+        <div id="compass">
+            <p id="dir1">N</p>
+            <p id="dir2">W</p>
+            <p id="dir3">E</p>
+            <p id="dir4">S</p>
+        </div>
+        
+        <div id="miniMap"></div>
+
+        <div id="monsterImg"></div>
+        <div id="lootImg"></div>
+        <input type="button" id="attack" value="Attack!" onclick="fight()">
+    </div>
+    <div id="statusDiv">
+        <div id="compass2">
+            <input type="button" id="up" value="North" onclick="move(this.value)">
+            <input type="button" id="left" value="West" onclick="move(this.value)">
+            <input type="button" id="right" value="East" onclick="move(this.value)">
+            <input type="button" id="down" value="South" onclick="move(this.value)">
+        </div>
+        <input type="button" id="startButton" value="Start game" onclick="start()">
+        <input type="button" id="stopButton" value="Stop music" onclick="stopMusic()">
+
+        <h2 id="points"></h2>
+        <br>
+        <h2 id="statusText"></h2>
+
+        <div id="choices">
+            <input type="button" id="fight" value="Fight" onclick="fightMonster()">
+            <input type="button" id="leave" value="Leave" onclick="leaveMonster()">
+        </div>
+    </div>
+    <div id="frame"></div>
+        <script src="script/game.js"></script>
+</body>
+
+</html>
