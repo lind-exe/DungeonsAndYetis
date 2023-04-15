@@ -11,7 +11,8 @@
     height: auto;
     border: groove 5px black;
     font-family: 'Press Start 2P', cursive;
-    background-color: whitesmoke;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(198, 196, 196, 1) 100%);
     font-size: 0.6em;
 
     padding: 15px;
@@ -41,7 +42,8 @@ body {
 
 
 
-    background-color: rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(198, 196, 196, 1) 100%);
     color: black;
     border: groove 5px red;
     font-size: 1em;

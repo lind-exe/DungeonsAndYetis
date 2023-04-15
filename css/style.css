@@ -135,7 +135,8 @@ body {
 #left,
 #right,
 #down {
-    background-color: rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(198, 196, 196, 1) 100%);
     border: 4px gray outset;
     border-radius: 5px;
     height: 55px;
@@ -227,7 +228,8 @@ h2 {
 }
 
 #statusContainer {
-    background-color: white;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(198, 196, 196, 1) 100%);
     border: solid 2px black;
     width: 480px;
     margin: 5px;
@@ -243,7 +245,8 @@ h2 {
     padding: 10px;
     font-family: 'Press Start 2P', cursive;
     border: 2px solid black;
-    background-color: whitesmoke;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(198, 196, 196, 1) 100%);
 }
 
 
@@ -255,7 +258,8 @@ h2 {
     margin: 5px;
     font-size: 0.7em;
     font-family: 'Press Start 2P', cursive;
-    background-color: white;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(198, 196, 196, 1) 100%);
 }
 
 #choices {
