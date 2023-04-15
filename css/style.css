@@ -257,6 +257,19 @@ h2 {
     margin: 5px;
 }
 
+#timer {
+    height: 60px;
+    width: 180px;
+    position:absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    padding: 10px;
+    font-size: 0.7em;
+    font-family: 'Press Start 2P', cursive;
+    border: 2px solid black;
+}
+
 
 #stopButton {
     height: 50px;

@@ -13,22 +13,24 @@ let array = [
     [1, 1, 1, 0, 1, 0, 1, 0, 0, 1],
     [1, 2, 0, 0, 1, 0, 0, 1, 1, 1],
     [1, 0, 1, 0, 1, 1, 3, 1, 2, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 3, 0, 2, 0, 0, 1],
     [1, 1, 1, 1, 1, 0, 1, 1, 1, 1]
 ]
-let points = 0
+let points
+let timer
 
 start()
 
-function load() {
-    // loading / progressbar ca 4 sek
-
+if(timer < 0) {
+    gameOver()
 }
 
 function start() {
     iPosition = 9
     jPosition = 5
     points = 0
+    timer = 20
+
     document.getElementById("up").value = "North";
     document.getElementById("left").value = "West";
     document.getElementById("right").value = "East";
@@ -111,6 +113,9 @@ function move(value) {
     document.getElementById("statusText").innerHTML = "";
 
     let stepSound = new Audio("step2.mp3");
+    if (timer == 20) {
+        setInterval('runTimer()', 1000)
+    }
 
     if (value == 'North') {
         if (array[iPosition - 1][jPosition] != 1) {
@@ -156,6 +161,11 @@ function move(value) {
             drawLabyrinth(iPosition, jPosition)
         }
     }
+}
+
+function runTimer() {
+    timer--;
+    document.getElementById("timer").innerHTML = "Time remaining: " + timer;
 }
 
 function changeCompass(direction) {
@@ -251,16 +261,17 @@ function fightMonster() {
 function fight() {
     points += 500
     array[iPosition][jPosition] = 0
-    document.getElementById("statusText").innerHTML = "You loot the yeti and receive 500 points"
+    document.getElementById("statusText").innerHTML = "You loot the yeti and find 500 gold-coins"
     document.getElementById('monsterImg').style.backgroundImage = "";
     document.getElementById("attack").style.backgroundColor = "";
     document.getElementById("attack").style.color = "";
 }
 function leaveMonster() {
+    array[iPosition][jPosition] = 0
     document.getElementById("fight").style.display === "none";
     document.getElementById("leave").style.display === "none";
 
-    document.getElementById("statusText").innerHTML = "The yeti gifts you 100 points"
+    document.getElementById("statusText").innerHTML = "The yeti gifts you 100 gold-coins"
     points += 100
 }
 
@@ -295,7 +306,12 @@ function calculateBackground(leftValue, rightValue, frontValue) {
 }
 
 function gameWon() {
-    labyrinth = "<h1>Congrats, you won!</h1>"
-    document.getElementById('background').style.backgroundImage = "url(resources/exit.png)"; // du sätter den två gånger
-    document.getElementById("frame").innerHTML = labyrinth
+    let text = "<h1>Congrats, you won!</h1>"
+    document.getElementById('background').style.backgroundImage = "url(resources/exit.png)";
+    document.getElementById("timer").innerHTML = text
+}
+
+function gameOver() {
+    text = "The time is up, and you are trapped in the dungeon! Game over..."
+    document.getElementById("timer").innerHTML = text
 }
