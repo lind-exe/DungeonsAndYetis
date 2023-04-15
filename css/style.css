@@ -276,6 +276,7 @@ h2 {
     width: 205px;
     height: 30px;
     z-index: 1;
+    display: none;
     
 }
 

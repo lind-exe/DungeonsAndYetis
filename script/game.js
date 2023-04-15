@@ -22,7 +22,7 @@ start()
 
 function load() {
     // loading / progressbar ca 4 sek
-    
+
 }
 
 function start() {
@@ -60,8 +60,12 @@ function drawLabyrinth(iPos, jPos) {
     let j = 0
     var innerArray = array[i].length;
 
-    if (array[iPosition][jPosition] == 4) {
+    if (array[iPos][jPos] == 4) {
         gameWon()
+    }
+    if (array[iPos][jPos] == 3) {
+        let item = document.getElementById("choices")
+        item.style.display = "block"
     }
 
     for (i = 0; i < array.length; i++) {
@@ -74,17 +78,14 @@ function drawLabyrinth(iPos, jPos) {
             }
             else if (current == 1) {
                 labyrinth += "<div id='wall'>i." + i + "| j." + j + "</div>"
-                // miniMap += "<div id='miniWall'></div>"
                 miniMap += "<div id='miniSquare'></div>"
             }
             else if (current == 2) {
                 labyrinth += "<div id='loot'> Loot </div>"
-                // miniMap += "<div id='miniLoot'></div>"
                 miniMap += "<div id='miniSquare'></div>"
             }
             else if (current == 3) {
                 labyrinth += "<div id='monster'> M </div>"
-                // miniMap += "<div id='miniMonster'></div>"
                 miniMap += "<div id='miniSquare'></div>"
             }
             else if (current == 4) {
@@ -214,15 +215,12 @@ function addPictures(iPosition, jPosition, value) {
         document.getElementById("statusText").innerHTML = "You found a treasure chest containing 300 points!"
     }
     if (array[iPosition][jPosition] == 3) {
-        //knapp dyker upp 
         document.getElementById("statusText").innerHTML = "You encounter a yeti, fight or leave it alone?"
         document.getElementById('monsterImg').style.backgroundImage = "url(resources/kennyrich.png)";
 
+        document.getElementById("fight").style.display === "block";
+        document.getElementById("leave").style.display === "block";
 
-        // fightmonster()
-
-
-        // man ska inte kunna gå förrän monstret är borta
     }
     if (array[iPosition][jPosition] == 4) {
         // knapp till dörren?
@@ -241,10 +239,14 @@ function fightMonster() {
 
     //choicemenu.createelement()
 
+    document.getElementById("fight").style.display === "none";
+    document.getElementById("leave").style.display === "none";
+
     document.getElementById('monsterImg').style.backgroundImage = "url(resources/kenny1.png)";
     document.getElementById("statusText").innerHTML = "The yeti is angry, fight for your life!"
     document.getElementById("attack").style.backgroundColor = "red";
     document.getElementById("attack").style.color = "black";
+    // man ska inte kunna gå förrän monstret är borta
 }
 function fight() {
     points += 500
@@ -255,6 +257,9 @@ function fight() {
     document.getElementById("attack").style.color = "";
 }
 function leaveMonster() {
+    document.getElementById("fight").style.display === "none";
+    document.getElementById("leave").style.display === "none";
+
     document.getElementById("statusText").innerHTML = "The yeti gifts you 100 points"
     points += 100
 }
