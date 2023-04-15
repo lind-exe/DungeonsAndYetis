@@ -19,6 +19,7 @@ let array = [
 let points
 let timer
 let gameover = new Boolean(false)
+let gameStarted
 
 start()
 
@@ -27,6 +28,7 @@ function start() {
     jPosition = 5
     points = 0
     timer = 120
+    gameStarted = new Boolean(false)
 
     document.getElementById("up").value = "North";
     document.getElementById("left").value = "West";
@@ -111,8 +113,9 @@ function move(value) {
 
     let stepSound = new Audio("step2.mp3");
 
-    if (timer == 120) {
+    if (gameStarted == false) {
         setInterval('runTimer()', 1000)
+        gameStarted = new Boolean(true);
     }
 
     if (value == 'North') {
