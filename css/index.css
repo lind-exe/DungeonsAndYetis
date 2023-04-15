@@ -1,9 +1,53 @@
 #jokeDiv {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+
+
+
     width: auto;
     height: auto;
-    border: none;
+    border: groove 5px black;
+    font-family: 'Press Start 2P', cursive;
+    background-color: whitesmoke;
+    font-size: 0.6em;
+
+    padding: 15px;
+
 }
 
-body{
+body {
     background-image: url(/resources/titlebg.png);
+}
+
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.startGameButton {
+    position: fixed;
+    left: 50%;
+    bottom: 190px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+
+
+
+
+
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: groove 5px red;
+    font-size: 1em;
+    padding: 10px;
+    margin: auto;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+
 }

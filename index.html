@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,28 @@
     <link rel="stylesheet" href="css/index.css">
     <script src="script/index.js"></script>
     <title>Dungeons & Yetis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- logga -->
-    <div id="jokeDiv"></div>
+    
     <!-- starta spel-knapp -->
     <!-- skickas sedan till game.html där spelet startar direkt  -->
-
+    <div id="jokeDiv"></div>
 
     <div class="content">
         <div class="header"></div>
         <div class="startgame">
-            <input type="button" onclick="window.location.href = 'game.html'" value="Enter the dungeon!">
+            <input class="startGameButton" type="button" onclick="window.location.href = 'game.html'"
+                value="ENTER DUNGEON">
+                
         </div>
+        
     </div>
 </body>
 <script src="script/index.js"></script>
+
 </html>
