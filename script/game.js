@@ -18,18 +18,15 @@ let array = [
 ]
 let points
 let timer
+let gameover = new Boolean(false)
 
 start()
-
-if(timer < 0) {
-    gameOver()
-}
 
 function start() {
     iPosition = 9
     jPosition = 5
     points = 0
-    timer = 20
+    timer = 120
 
     document.getElementById("up").value = "North";
     document.getElementById("left").value = "West";
@@ -39,7 +36,7 @@ function start() {
     document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
 
 
-    playMusic();
+    //playMusic();
     drawLabyrinth(iPosition, jPosition);
 }
 
@@ -54,7 +51,7 @@ function stopMusic() {
 }
 
 function drawLabyrinth(iPos, jPos) {
-    document.getElementById("points").innerHTML = "Points: " + points
+    document.getElementById("points").innerHTML = points + " gold coins"
 
     labyrinth = ""
     miniMap = ""
@@ -113,7 +110,8 @@ function move(value) {
     document.getElementById("statusText").innerHTML = "";
 
     let stepSound = new Audio("step2.mp3");
-    if (timer == 20) {
+
+    if (timer == 120) {
         setInterval('runTimer()', 1000)
     }
 
@@ -164,8 +162,13 @@ function move(value) {
 }
 
 function runTimer() {
-    timer--;
-    document.getElementById("timer").innerHTML = "Time remaining: " + timer;
+    if (timer > 0 && gameover == false) {
+        timer--;
+        document.getElementById("timer").innerHTML = "Time remaining: " + timer;
+    }
+    else if(timer <= 0){
+        gameOver()
+    }
 }
 
 function changeCompass(direction) {
@@ -244,11 +247,6 @@ function addPictures(iPosition, jPosition, value) {
 
 function fightMonster() {
 
-
-    // let choicemenu = doc.get(choices)
-
-    //choicemenu.createelement()
-
     document.getElementById("fight").style.display === "none";
     document.getElementById("leave").style.display === "none";
 
@@ -306,12 +304,16 @@ function calculateBackground(leftValue, rightValue, frontValue) {
 }
 
 function gameWon() {
-    let text = "<h1>Congrats, you won!</h1>"
+    gameover = new Boolean(true);
+    var score = timer + points;
+    let text = "Congrats, you won! Your final score is: " + score
     document.getElementById('background').style.backgroundImage = "url(resources/exit.png)";
     document.getElementById("timer").innerHTML = text
+    //man ska inte kunna fortsätta gå 
 }
 
 function gameOver() {
     text = "The time is up, and you are trapped in the dungeon! Game over..."
     document.getElementById("timer").innerHTML = text
+    //man ska inte kunna fortsätta gå 
 }
