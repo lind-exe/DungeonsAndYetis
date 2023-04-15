@@ -36,7 +36,7 @@ function start() {
     document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
 
 
-    //playMusic();
+    playMusic();
     drawLabyrinth(iPosition, jPosition);
 }
 
