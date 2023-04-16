@@ -237,7 +237,7 @@ h2 {
 
 #timer {
     height: 90px;
-    width: 200px;
+    width: 265px;
     position: absolute;
     top: 0;
     right: 0;
@@ -248,7 +248,17 @@ h2 {
     background: rgb(255, 255, 255);
     background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(198, 196, 196, 1) 100%);
 }
-
+#restartButton {
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 140px;
+    margin: 5px;
+    font-size: 0.7em;
+    font-family: 'Press Start 2P', cursive;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(198, 196, 196, 1) 100%);
+}
 
 #stopButton {
     height: 50px;

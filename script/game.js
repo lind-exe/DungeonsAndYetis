@@ -4,22 +4,11 @@ let jPosition
 let audio = new Audio("audio.mp3");
 let labyrinth
 let miniMap
-let array = [
-    [1, 1, 1, 1, 4, 1, 1, 1, 1, 1],
-    [1, 3, 0, 0, 0, 1, 0, 0, 0, 1],
-    [1, 0, 1, 2, 1, 1, 1, 1, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 2, 1],
-    [1, 0, 1, 0, 1, 0, 0, 0, 1, 1],
-    [1, 1, 1, 0, 1, 0, 1, 0, 0, 1],
-    [1, 2, 0, 0, 1, 0, 0, 1, 1, 1],
-    [1, 0, 1, 0, 1, 1, 3, 1, 2, 1],
-    [1, 0, 0, 0, 3, 0, 2, 0, 0, 1],
-    [1, 1, 1, 1, 1, 0, 1, 1, 1, 1]
-]
+let array
 let points
 let timer
 let gameover = new Boolean(false)
-let gameStarted
+let gameStarted = new Boolean(false)
 
 start()
 
@@ -28,7 +17,18 @@ function start() {
     jPosition = 5
     points = 0
     timer = 120
-    gameStarted = new Boolean(false)
+    array = [
+        [1, 1, 1, 1, 4, 1, 1, 1, 1, 1],
+        [1, 3, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 0, 1, 2, 1, 1, 1, 1, 0, 1],
+        [1, 0, 0, 0, 0, 0, 1, 0, 2, 1],
+        [1, 0, 1, 0, 1, 0, 0, 0, 1, 1],
+        [1, 1, 1, 0, 1, 0, 1, 0, 0, 1],
+        [1, 2, 0, 0, 1, 0, 0, 1, 1, 1],
+        [1, 0, 1, 0, 1, 1, 3, 1, 2, 1],
+        [1, 0, 0, 0, 3, 0, 2, 0, 0, 1],
+        [1, 1, 1, 1, 1, 0, 1, 1, 1, 1]
+    ]
 
     document.getElementById("up").value = "North";
     document.getElementById("left").value = "West";
@@ -36,8 +36,11 @@ function start() {
     document.getElementById("down").value = "South";
     document.getElementById("statusText").innerHTML = "";
     document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
+    document.getElementById("monsterImg").style.background = "transparent";
+    document.getElementById("lootImg").style.background = "transparent";
+    document.getElementById("choices").style.display === "none"
 
-
+    stopMusic();
     playMusic();
     drawLabyrinth(iPosition, jPosition);
 }
@@ -45,7 +48,6 @@ function start() {
 function playMusic() {
     audio.play()
     audio.volume = 0.1
-
 }
 
 function stopMusic() {
@@ -65,8 +67,7 @@ function drawLabyrinth(iPos, jPos) {
         gameWon()
     }
     if (array[iPos][jPos] == 3) {
-        let item = document.getElementById("choices")
-        item.style.display = "block"
+        document.getElementById("choices").style.display === "block"
     }
 
     for (i = 0; i < array.length; i++) {
