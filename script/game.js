@@ -26,7 +26,7 @@ function start() {
         [1, 1, 1, 0, 1, 0, 1, 0, 0, 1],
         [1, 2, 0, 0, 1, 0, 0, 1, 1, 1],
         [1, 0, 1, 0, 1, 1, 3, 1, 2, 1],
-        [1, 0, 0, 0, 3, 0, 2, 0, 0, 1],
+        [1, 3, 0, 0, 0, 0, 0, 0, 0, 1],
         [1, 1, 1, 1, 1, 0, 1, 1, 1, 1]
     ]
 
@@ -36,9 +36,6 @@ function start() {
     document.getElementById("down").value = "South";
     document.getElementById("statusText").innerHTML = "";
     document.getElementById('background').style.backgroundImage = "url(resources/center-open.png)";
-    document.getElementById("monsterImg").style.background = "transparent";
-    document.getElementById("lootImg").style.background = "transparent";
-    document.getElementById("choices").style.display === "none"
 
     stopMusic();
     playMusic();
@@ -66,12 +63,15 @@ function drawLabyrinth(iPos, jPos) {
     if (array[iPos][jPos] == 4) {
         gameWon()
     }
+
     if (array[iPos][jPos] == 3) {
+        let item = document.getElementById("choices")
+        item.style.display = "block"
         document.getElementById("choices").style.display === "block"
     }
 
     for (i = 0; i < array.length; i++) {
-
+        
         for (j = 0; j < innerArray; j++) {
             var current = array[i][j]
             if (iPos == i && jPos == j) {
@@ -170,7 +170,7 @@ function runTimer() {
         timer--;
         document.getElementById("timer").innerHTML = "Time remaining: " + timer;
     }
-    else if(timer <= 0){
+    else if (timer <= 0) {
         gameOver()
     }
 }
@@ -235,24 +235,17 @@ function addPictures(iPosition, jPosition, value) {
         document.getElementById("statusText").innerHTML = "You encounter a yeti, fight or leave it alone?"
         document.getElementById('monsterImg').style.backgroundImage = "url(resources/kennyrich.png)";
 
-        document.getElementById("fight").style.display === "block";
-        document.getElementById("leave").style.display === "block";
+        document.getElementById("fight").style.backgroundColor = "#62220d";
+        document.getElementById("fight").style.color = "black";
+        document.getElementById("leave").style.backgroundColor = "#62220d";
+        document.getElementById("leave").style.color = "black";
 
-    }
-    if (array[iPosition][jPosition] == 4) {
-        // knapp till dörren?
-        document.getElementById("statusText").innerHTML = "You found the exit, click the door to leave"
-        // document.getElementById('monsterImg').style.backgroundImage = "url(resources/exit.png)"; // du sätteer den två gånger
-        // idk varför 
     }
 
     changeCompass(value)
 }
 
 function fightMonster() {
-
-    document.getElementById("fight").style.display === "none";
-    document.getElementById("leave").style.display === "none";
 
     document.getElementById('monsterImg').style.backgroundImage = "url(resources/kenny1.png)";
     document.getElementById("statusText").innerHTML = "The yeti is angry, fight for your life!"
@@ -270,8 +263,11 @@ function fight() {
 }
 function leaveMonster() {
     array[iPosition][jPosition] = 0
-    document.getElementById("fight").style.display === "none";
-    document.getElementById("leave").style.display === "none";
+
+    document.getElementById("fight").style.backgroundColor = "";
+        document.getElementById("fight").style.color = "";
+        document.getElementById("leave").style.backgroundColor = "";
+        document.getElementById("leave").style.color = "";
 
     document.getElementById("statusText").innerHTML = "The yeti gifts you 100 gold-coins"
     points += 100
