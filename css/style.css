@@ -1,5 +1,5 @@
 body {
-    background-image: url(resources/winxop.jpg);
+    background-image: url(../resources/winxop.jpg);
 }
 
 #everything {
@@ -151,25 +151,25 @@ body {
 #up {
     top: 0;
     left: 60px;
-    background-image: url(/resources/aup.png);
+    background-image: url(../resources/aup.png);
 }
 
 #down {
     bottom: 0;
     left: 60px;
-    background-image: url(/resources/adown.png);
+    background-image: url(../resources/adown.png);
 }
 
 #left {
     left: 0;
     top: 60px;
-    background-image: url(/resources/aleft.png);
+    background-image: url(../resources/aleft.png);
 }
 
 #right {
     right: -4px;
     top: 60px;
-    background-image: url(/resources/aright.png);
+    background-image: url(../resources/aright.png);
 }
 
 #compass p {
