@@ -14,7 +14,7 @@ jobs:
         steps:
             - run: echo "Cloning ${{ github.repository }} to the runner..."
             - name: Checkout repo
-              uses: actions/checkout@4.1.1
+              uses: actions/checkout@v4.1.1
             - run: echo "The repo has been cloned and is ready for everything!"
             - name: List files in repo
               run: | 
